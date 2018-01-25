@@ -1,0 +1,40 @@
+{
+    "name": "mochinet2",
+    "version": "1.0.0",
+    "description": "frontend",
+    "main": "src/frontend/index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/fedenator/Mochinet2.git"
+    },
+    "author": "fpalacios",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/fedenator/Mochinet2/issues"
+    },
+    "homepage": "https://github.com/fedenator/Mochinet2#readme",
+    "dependencies": {
+        "@babel/core": "^7.0.0-beta.38",
+        "@babel/preset-env": "^7.0.0-beta.38",
+        "@babel/preset-react": "^7.0.0-beta.38",
+        "babel-cli": "^6.26.0",
+        "babel-loader": "^8.0.0-beta.0",
+        "babel-preset-env": "^1.6.1",
+        "babel-preset-es2015": "^6.24.1",
+        "babel-preset-flow": "^6.23.0",
+        "babel-preset-react": "^6.24.1",
+        "bootstrap": "^4.0.0",
+        "css-loader": "^0.28.9",
+        "jquery": "^3.3.1",
+        "less": "^2.7.3",
+        "less-loader": "^4.0.5",
+        "popper.js": "^1.13.0",
+        "react": "^16.2.0",
+        "react-dom": "^16.2.0",
+        "style-loader": "^0.19.1",
+        "webpack": "^3.10.0"
+    }
+}
