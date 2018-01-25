@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 
+import './Nav.less';
+
 class Nav extends Component {
     render() {
         return (
-            <nav>
-                Soy un navbar
+            <nav className='navbar'>
+                <a className='navbar-brand' href='/'>Mochinet2</a>
             </nav>
         );
     }
