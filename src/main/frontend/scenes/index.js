@@ -26,17 +26,15 @@ class Index extends Component {
     
     render() {
         return(
-            <div className='container-fluid fill no-pad' id='Index'>
+            <div className='vbox' id='Index'>
                 <Nav />
-                <div className='container-fluid no-pad'>
-                    <div className='row'>
-                        <div className='col-4'>
-                            <CommentEditor
-                                id    = { this.state.id }
-                                setid = { this.setid    } />
-                        </div>
-                        <div className='col-8'><CommentsTable /></div>
+                <div className='hbox'>
+                    <div className='w-25'>
+                        <CommentEditor
+                            id    = { this.state.id }
+                            setid = { this.setid    } />
                     </div>
+                    <div className='w-75 scrolleable'><CommentsTable/></div>
                 </div>
             </div>
         );

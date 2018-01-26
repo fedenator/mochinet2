@@ -1431,20 +1431,18 @@ class Index extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
 
   render() {
     return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
-      className: "container-fluid fill no-pad",
+      className: "vbox",
       id: "Index"
     }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__components_Nav_jsx__["a" /* default */], null), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
-      className: "container-fluid no-pad"
+      className: "hbox"
     }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
-      className: "row"
-    }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
-      className: "col-4"
+      className: "w-25"
     }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_6__components_CommentEditor_jsx__["a" /* default */], {
       id: this.state.id,
       setid: this.setid
     })), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
-      className: "col-8"
-    }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5__components_CommentsTable_jsx__["a" /* default */], null)))));
+      className: "w-75 scrolleable"
+    }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5__components_CommentsTable_jsx__["a" /* default */], null))));
   }
 
 }
@@ -35750,10 +35748,24 @@ exports.push([module.i, ".navbar {\n  background-color: #438eb9;\n}\n.navbar .bt
 
 
 
+class CommentRow extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
+  render() {
+    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("tr", {
+      onClick: event => this.props.setid(this.props.id),
+      style: {
+        backgroundColor: this.props.color
+      }
+    }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("th", {
+      scope: "row"
+    }, this.props.id), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("td", null, this.props.message), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("td", null, this.props.date));
+  }
+
+}
+
 class CommentsTable extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
   render() {
     return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("table", {
-      className: "CommentsTable table holi"
+      className: "CommentsTable table"
     }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("thead", null, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("tr", null, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("th", {
       scope: "col",
       style: {
@@ -35769,31 +35781,157 @@ class CommentsTable extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
       style: {
         width: '20%'
       }
-    }, "Fecha"))), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("tbody", null, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("tr", null, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("th", {
-      scope: "row"
-    }, "1"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("td", null, "Mark"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("td", null, "1/1/2018")), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("tr", null, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("th", {
-      scope: "row"
-    }, "2"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("td", null, "Jacob"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("td", null, "1/1/2018")), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("tr", null, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("th", {
-      scope: "row"
-    }, "3"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("td", null, "Larry"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("td", null, "1/1/2018")), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("tr", null, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("th", {
-      scope: "row"
-    }, "4"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("td", null, "Mark"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("td", null, "1/1/2018")), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("tr", null, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("th", {
-      scope: "row"
-    }, "5"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("td", null, "Jacob"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("td", null, "1/1/2018")), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("tr", null, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("th", {
-      scope: "row"
-    }, "6"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("td", null, "Larry"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("td", null, "1/1/2018")), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("tr", null, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("th", {
-      scope: "row"
-    }, "7"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("td", null, "Mark"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("td", null, "1/1/2018")), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("tr", null, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("th", {
-      scope: "row"
-    }, "8"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("td", null, "Jacob"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("td", null, "1/1/2018")), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("tr", null, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("th", {
-      scope: "row"
-    }, "9"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("td", null, "Larry"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("td", null, "1/1/2018")), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("tr", null, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("th", {
-      scope: "row"
-    }, "10"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("td", null, "Mark"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("td", null, "1/1/2018")), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("tr", null, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("th", {
-      scope: "row"
-    }, "11"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("td", null, "Jacob"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("td", null, "1/1/2018")), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("tr", null, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("th", {
-      scope: "row"
-    }, "12"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("td", null, "Larry"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("td", null, "1/1/2018"))));
+    }, "Fecha"))), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("tbody", null, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(CommentRow, {
+      id: 0,
+      setid: this.props.id,
+      color: "#f5c6cb",
+      message: "Mark",
+      date: "1/1/2018"
+    }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(CommentRow, {
+      id: 1,
+      setid: this.props.id,
+      color: "#f5c6cb",
+      message: "Larry",
+      date: "1/1/2018"
+    }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(CommentRow, {
+      id: 2,
+      setid: this.props.id,
+      color: "#f5c6cb",
+      message: "Joe",
+      date: "1/1/2018"
+    }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(CommentRow, {
+      id: 3,
+      setid: this.props.id,
+      color: "#f5c6cb",
+      message: "Mark",
+      date: "1/1/2018"
+    }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(CommentRow, {
+      id: 4,
+      setid: this.props.id,
+      color: "#f5c6cb",
+      message: "Mark",
+      date: "1/1/2018"
+    }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(CommentRow, {
+      id: 5,
+      setid: this.props.id,
+      color: "#f5c6cb",
+      message: "Mark",
+      date: "1/1/2018"
+    }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(CommentRow, {
+      id: 6,
+      setid: this.props.id,
+      color: "#f5c6cb",
+      message: "Mark",
+      date: "1/1/2018"
+    }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(CommentRow, {
+      id: 7,
+      setid: this.props.id,
+      color: "#f5c6cb",
+      message: "Mark",
+      date: "1/1/2018"
+    }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(CommentRow, {
+      id: 8,
+      setid: this.props.id,
+      color: "#f5c6cb",
+      message: "Mark",
+      date: "1/1/2018"
+    }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(CommentRow, {
+      id: 9,
+      setid: this.props.id,
+      color: "#f5c6cb",
+      message: "Mark",
+      date: "1/1/2018"
+    }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(CommentRow, {
+      id: 10,
+      setid: this.props.id,
+      color: "#f5c6cb",
+      message: "Mark",
+      date: "1/1/2018"
+    }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(CommentRow, {
+      id: 11,
+      setid: this.props.id,
+      color: "#f5c6cb",
+      message: "Mark",
+      date: "1/1/2018"
+    }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(CommentRow, {
+      id: 12,
+      setid: this.props.id,
+      color: "#f5c6cb",
+      message: "Mark",
+      date: "1/1/2018"
+    }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(CommentRow, {
+      id: 13,
+      setid: this.props.id,
+      color: "#f5c6cb",
+      message: "Mark",
+      date: "1/1/2018"
+    }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(CommentRow, {
+      id: 14,
+      setid: this.props.id,
+      color: "#f5c6cb",
+      message: "Mark",
+      date: "1/1/2018"
+    }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(CommentRow, {
+      id: 15,
+      setid: this.props.id,
+      color: "#f5c6cb",
+      message: "Mark",
+      date: "1/1/2018"
+    }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(CommentRow, {
+      id: 16,
+      setid: this.props.id,
+      color: "#f5c6cb",
+      message: "Mark",
+      date: "1/1/2018"
+    }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(CommentRow, {
+      id: 17,
+      setid: this.props.id,
+      color: "#f5c6cb",
+      message: "Mark",
+      date: "1/1/2018"
+    }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(CommentRow, {
+      id: 18,
+      setid: this.props.id,
+      color: "#f5c6cb",
+      message: "Mark",
+      date: "1/1/2018"
+    }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(CommentRow, {
+      id: 19,
+      setid: this.props.id,
+      color: "#f5c6cb",
+      message: "Mark",
+      date: "1/1/2018"
+    }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(CommentRow, {
+      id: 20,
+      setid: this.props.id,
+      color: "#f5c6cb",
+      message: "Mark",
+      date: "1/1/2018"
+    }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(CommentRow, {
+      id: 21,
+      setid: this.props.id,
+      color: "#f5c6cb",
+      message: "Mark",
+      date: "1/1/2018"
+    }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(CommentRow, {
+      id: 22,
+      setid: this.props.id,
+      color: "#f5c6cb",
+      message: "Mark",
+      date: "1/1/2018"
+    }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(CommentRow, {
+      id: 23,
+      setid: this.props.id,
+      color: "#f5c6cb",
+      message: "Mark",
+      date: "1/1/2018"
+    }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(CommentRow, {
+      id: 24,
+      setid: this.props.id,
+      color: "#f5c6cb",
+      message: "Mark",
+      date: "1/1/2018"
+    })));
   }
 
 }
@@ -35840,7 +35978,7 @@ exports = module.exports = __webpack_require__(3)(false);
 
 
 // module
-exports.push([module.i, ".holi {\n  overflow-y: auto;\n  width: 100%;\n}\n", ""]);
+exports.push([module.i, ".CommentsTable {\n  height: 100%;\n  width: 100%;\n  position: relative;\n}\n", ""]);
 
 // exports
 
@@ -36007,7 +36145,7 @@ exports = module.exports = __webpack_require__(3)(false);
 
 
 // module
-exports.push([module.i, "#app {\n  width: 100%;\n  margin: 0;\n  padding: 0;\n}\n.no-pad {\n  padding: 0px;\n}\n.no-cursor {\n  color: transparent;\n  text-shadow: 0 0 0 black;\n}\n.rect {\n  border-radius: 0px;\n}\n", ""]);
+exports.push([module.i, "* {\n  margin: 0;\n  padding: 0;\n}\nhtml,\nbody {\n  height: 100%;\n}\n#app {\n  width: 100%;\n  height: 100%;\n  margin: 0;\n  padding: 0;\n}\n.no-pad {\n  padding: 0px;\n}\n.no-cursor {\n  color: transparent;\n  text-shadow: 0 0 0 black;\n}\n.rect {\n  border-radius: 0px;\n}\n.scrolleable {\n  overflow: scroll;\n}\n.hbox {\n  display: flex;\n  width: 100%;\n  height: 100%;\n  flex-wrap: nowrap;\n}\n.vbox {\n  display: flex;\n  flex-direction: column;\n  width: 100%;\n  height: 100%;\n  flex-wrap: nowrap;\n}\n", ""]);
 
 // exports
 
