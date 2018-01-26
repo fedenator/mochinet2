@@ -35844,6 +35844,7 @@ exports.push([module.i, ".holi {\n  overflow-y: auto;\n  width: 100%;\n}\n", ""]
 class PrioritySelector extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
   constructor(props) {
     super(props);
+    this.colors = ['#00FF00', '#FFFF00', '#FF8000', '#FF0000'];
     this.state = {
       value: 0
     };
@@ -35852,13 +35853,16 @@ class PrioritySelector extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] 
   render() {
     return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("input", {
       type: "number",
-      className: "selPriority form-control border border-dark text-center",
+      className: "selPriority form-control border border-dark text-center rect",
       min: "0",
       max: this.props.max,
       value: this.state.value,
       onChange: event => this.setState({
         value: event.target.value
-      })
+      }),
+      style: {
+        backgroundColor: this.colors[this.state.value]
+      }
     });
   }
 
@@ -35870,7 +35874,7 @@ class CommentEditor extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
       className: "CommentEditor border border-dark"
     }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("button", {
       type: "button",
-      className: "btnNew btn btn-outline-dark"
+      className: "btnNew btn btn-outline-dark rect"
     }, "Nuevo"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("input", {
       type: "text",
       className: "txtId from-control border border-dark text-center no-cursor",
@@ -35879,12 +35883,12 @@ class CommentEditor extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
     }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("textarea", {
       className: "txaBody     border border-dark"
     }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(PrioritySelector, {
-      max: "5",
+      max: "3",
       value: "0"
     }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("button", {
-      className: "btnSave     btn btn-outline-dark"
+      className: "btnSave     btn btn-outline-dark rect"
     }, "Guardar"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("button", {
-      className: "btnDelete   btn btn-outline-dark"
+      className: "btnDelete   btn btn-outline-dark rect"
     }, "Borrar"));
   }
 
@@ -35932,7 +35936,7 @@ exports = module.exports = __webpack_require__(3)(false);
 
 
 // module
-exports.push([module.i, ".CommentEditor {\n  height: 50%;\n  display: grid;\n  grid-template-areas: \"A   B\" \"C   C\" \"D   D\" \"E   F\";\n  grid-template-rows: 40px auto 40px 40px;\n}\n.CommentEditor .btnNew {\n  grid-area: A;\n}\n.CommentEditor .txtId {\n  border-color: B;\n}\n.CommentEditor .txaBody {\n  grid-area: C;\n  resize: none;\n  border-color: black;\n}\n.CommentEditor .selPriority {\n  grid-area: D;\n}\n.CommentEditor .btnSave {\n  grid-area: E;\n}\n.CommentEditor .btnDelete {\n  grid-area: F;\n}\n", ""]);
+exports.push([module.i, ".CommentEditor {\n  height: 50%;\n  display: grid;\n  grid-template-areas: \"A   B\" \"C   C\" \"D   D\" \"E   F\";\n  grid-template-rows: 40px auto 40px 40px;\n}\n.CommentEditor .btnNew {\n  grid-area: A;\n}\n.CommentEditor .txtId {\n  border-color: B;\n}\n.CommentEditor .txaBody {\n  grid-area: C;\n  resize: none;\n  border-color: black;\n}\n.CommentEditor .selPriority {\n  grid-area: D;\n  color: transparent;\n}\n.CommentEditor .btnSave {\n  grid-area: E;\n}\n.CommentEditor .btnDelete {\n  grid-area: F;\n}\n", ""]);
 
 // exports
 
@@ -35977,7 +35981,7 @@ exports = module.exports = __webpack_require__(3)(false);
 
 
 // module
-exports.push([module.i, "#app {\n  width: 100%;\n  margin: 0;\n  padding: 0;\n}\n.no-pad {\n  padding: 0px;\n}\n.no-cursor {\n  color: transparent;\n  text-shadow: 0 0 0 black;\n}\n", ""]);
+exports.push([module.i, "#app {\n  width: 100%;\n  margin: 0;\n  padding: 0;\n}\n.no-pad {\n  padding: 0px;\n}\n.no-cursor {\n  color: transparent;\n  text-shadow: 0 0 0 black;\n}\n.rect {\n  border-radius: 0px;\n}\n", ""]);
 
 // exports
 
