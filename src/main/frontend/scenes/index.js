@@ -13,11 +13,13 @@ import './index.less';
 class Index extends Component {
     render() {
         return(
-            <div className='container-fluid'>
+            <div className='container-fluid fill no-pad' id='Index'>
                 <Nav />
-                <div className='row'>
-                    <div className='col-3'><CommentEditor /></div>
-                    <div className='col-9'><CommentsTable /></div>
+                <div className='container-fluid no-pad'>
+                    <div className='row'>
+                        <div className='col-4'><CommentEditor /></div>
+                        <div className='col-8'><CommentsTable /></div>
+                    </div>
                 </div>
             </div>
         );

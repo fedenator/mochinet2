@@ -1,3 +1,40 @@
-.txtId {
-    border-color: black;
+.CommentEditor {
+
+    height: 50%;
+
+    display: grid;
+    grid-template-areas:
+        "A   B"
+        "C   C"
+        "D   D"
+        "E   F";
+
+    grid-template-rows: 40px auto 40px 40px;
+
+    .btnNew {
+        grid-area: A;
+    }
+
+    .txtId {
+        border-color: B;
+    }
+
+    .txaBody {
+        grid-area: C;
+        resize: none;
+        border-color: black;
+    }
+
+    .selPriority {
+        grid-area: D;
+
+    }
+
+    .btnSave {
+        grid-area: E;
+    }
+
+    .btnDelete {
+        grid-area: F;
+    }
 }
