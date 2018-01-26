@@ -1416,6 +1416,19 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 class Index extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
+  constructor(props) {
+    super(props);
+    this.state = {
+      id: ''
+    };
+  }
+
+  setid(value) {
+    this.setState({
+      id: value
+    });
+  }
+
   render() {
     return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
       className: "container-fluid fill no-pad",
@@ -1426,7 +1439,10 @@ class Index extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
       className: "row"
     }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
       className: "col-4"
-    }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_6__components_CommentEditor_jsx__["a" /* default */], null)), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+    }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_6__components_CommentEditor_jsx__["a" /* default */], {
+      id: this.state.id,
+      setid: this.setid
+    })), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
       className: "col-8"
     }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5__components_CommentsTable_jsx__["a" /* default */], null)))));
   }
@@ -35857,28 +35873,35 @@ class PrioritySelector extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] 
       min: "0",
       max: this.props.max,
       value: this.state.value,
-      onChange: event => this.setState({
-        value: event.target.value
-      }),
       style: {
         backgroundColor: this.colors[this.state.value]
-      }
+      },
+      onChange: event => this.setState({
+        value: event.target.value
+      })
     });
   }
 
 }
 
 class CommentEditor extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
+  constructor(props) {
+    super(props);
+  }
+
   render() {
     return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
       className: "CommentEditor border border-dark"
     }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("button", {
       type: "button",
-      className: "btnNew btn btn-outline-dark rect"
+      className: "btnNew btn btn-outline-dark rect",
+      onClick: event => this.props.setid('')
     }, "Nuevo"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("input", {
       type: "text",
-      className: "txtId from-control border border-dark text-center no-cursor",
+      id: "txtId",
+      className: "from-control border border-dark text-center no-cursor",
       placeholder: "#Nuevo",
+      value: this.props.id,
       readOnly: true
     }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("textarea", {
       className: "txaBody     border border-dark"
@@ -35894,6 +35917,9 @@ class CommentEditor extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
 
 }
 
+CommentEditor.defaultProps = {
+  id: ''
+};
 /* harmony default export */ __webpack_exports__["a"] = (CommentEditor);
 
 /***/ }),
@@ -35936,7 +35962,7 @@ exports = module.exports = __webpack_require__(3)(false);
 
 
 // module
-exports.push([module.i, ".CommentEditor {\n  height: 50%;\n  display: grid;\n  grid-template-areas: \"A   B\" \"C   C\" \"D   D\" \"E   F\";\n  grid-template-rows: 40px auto 40px 40px;\n}\n.CommentEditor .btnNew {\n  grid-area: A;\n}\n.CommentEditor .txtId {\n  border-color: B;\n}\n.CommentEditor .txaBody {\n  grid-area: C;\n  resize: none;\n  border-color: black;\n}\n.CommentEditor .selPriority {\n  grid-area: D;\n  color: transparent;\n}\n.CommentEditor .btnSave {\n  grid-area: E;\n}\n.CommentEditor .btnDelete {\n  grid-area: F;\n}\n", ""]);
+exports.push([module.i, ".CommentEditor {\n  height: 50%;\n  display: grid;\n  grid-template-areas: \"A   B\" \"C   C\" \"D   D\" \"E   F\";\n  grid-template-rows: 40px auto 40px 40px;\n}\n.CommentEditor .btnNew {\n  grid-area: A;\n}\n.CommentEditor #txtId {\n  border-color: B;\n}\n.CommentEditor .txaBody {\n  grid-area: C;\n  resize: none;\n  border-color: black;\n}\n.CommentEditor .selPriority {\n  grid-area: D;\n  color: transparent;\n}\n.CommentEditor .btnSave {\n  grid-area: E;\n}\n.CommentEditor .btnDelete {\n  grid-area: F;\n}\n", ""]);
 
 // exports
 

@@ -4,8 +4,8 @@ import './CommentEditor.less';
 
 class PrioritySelector extends Component {
 
-    constructor(props) {
-        super(props);
+    constructor (props) {
+        super (props);
         
         this.colors = [
             '#00FF00',
@@ -19,33 +19,49 @@ class PrioritySelector extends Component {
         };
     }
 
-    render() {
+    render () {
         return (
             <input
-                type='number'
-                className='selPriority form-control border border-dark text-center rect'
+                type = 'number'
+                className = 'selPriority form-control border border-dark text-center rect'
+                
                 min='0' max={this.props.max}
+                
                 value    = {this.state.value}
+                style    = { {backgroundColor: this.colors[this.state.value]} }
+                
                 onChange = { (event) => 
                     this.setState ({
-                        value:   event.target.value
+                        value: event.target.value
                     })
                 }
-                style    = { {backgroundColor: this.colors[this.state.value]} }
             />
         );
     }
 }
 
 class CommentEditor extends Component {
-    render() {
+    
+    constructor (props) {
+        super (props);
+    }
+    
+    render () {
+        
         return (
             <div className='CommentEditor border border-dark'>
-                <button type="button" className='btnNew btn btn-outline-dark rect'>Nuevo</button>
+                <button
+                    type      = 'button'
+                    className = 'btnNew btn btn-outline-dark rect'
+                    onClick   = { (event) => this.props.setid('') }>
+                    Nuevo
+                </button>
                 <input
-                    type="text"
-                    className='txtId from-control border border-dark text-center no-cursor'
-                    placeholder='#Nuevo'
+                    type = 'text'
+                    id   = 'txtId'
+                    className   = 'from-control border border-dark text-center no-cursor'
+                    placeholder = '#Nuevo'
+                    value       = { this.props.id }
                     readOnly
                 />
                 <textarea className='txaBody     border border-dark'/>
@@ -56,5 +72,9 @@ class CommentEditor extends Component {
         );
     }
 }
+
+CommentEditor.defaultProps = {
+    id: ''
+};
 
 export default CommentEditor;
