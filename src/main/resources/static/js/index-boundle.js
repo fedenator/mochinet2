@@ -1404,8 +1404,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_Nav_jsx__ = __webpack_require__(36);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_CommentsTable_jsx__ = __webpack_require__(39);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_CommentEditor_jsx__ = __webpack_require__(42);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__index_less__ = __webpack_require__(45);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__index_less___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__index_less__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_Boxes_jsx__ = __webpack_require__(45);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__index_less__ = __webpack_require__(46);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__index_less___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__index_less__);
+
 
 
 
@@ -1430,19 +1432,20 @@ class Index extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
   }
 
   render() {
-    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
-      className: "vbox",
-      id: "Index"
-    }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__components_Nav_jsx__["a" /* default */], null), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
-      className: "hbox"
-    }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
-      className: "w-25"
+    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_7__components_Boxes_jsx__["c" /* VBox */], null, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__components_Nav_jsx__["a" /* default */], null), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_7__components_Boxes_jsx__["a" /* HBox */], {
+      grow: "1",
+      h: "1px"
+    }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_7__components_Boxes_jsx__["b" /* Item */], {
+      w: "2/7"
     }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_6__components_CommentEditor_jsx__["a" /* default */], {
       id: this.state.id,
       setid: this.setid
-    })), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
-      className: "w-75 scrolleable"
-    }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5__components_CommentsTable_jsx__["a" /* default */], null))));
+    })), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_7__components_Boxes_jsx__["b" /* Item */], {
+      className: "scrolleable",
+      w: "5/7"
+    }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5__components_CommentsTable_jsx__["a" /* default */], {
+      setid: this.setid
+    }))));
   }
 
 }
@@ -35764,174 +35767,36 @@ class CommentRow extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
 
 class CommentsTable extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
   render() {
+    const generateTag = (id, setid, color, message, date) => __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(CommentRow, {
+      id: id,
+      setid: setid,
+      color: color,
+      message: message,
+      date: date
+    });
+
+    let tags = [];
+
+    for (let i = 0; i < 100; i++) tags.push(generateTag(i, this.props.setid, '#f5c6cb', 'Markasdasdasdasdassadasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasassssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaas', '1/1/2018'));
+
     return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("table", {
       className: "CommentsTable table"
     }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("thead", null, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("tr", null, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("th", {
       scope: "col",
       style: {
-        width: '20%'
+        width: '60px'
       }
     }, "#"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("th", {
       scope: "col",
       style: {
-        width: '60%'
+        width: 'auto'
       }
     }, "Mensaje"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("th", {
       scope: "col",
       style: {
-        width: '20%'
+        width: '100px'
       }
-    }, "Fecha"))), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("tbody", null, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(CommentRow, {
-      id: 0,
-      setid: this.props.id,
-      color: "#f5c6cb",
-      message: "Mark",
-      date: "1/1/2018"
-    }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(CommentRow, {
-      id: 1,
-      setid: this.props.id,
-      color: "#f5c6cb",
-      message: "Larry",
-      date: "1/1/2018"
-    }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(CommentRow, {
-      id: 2,
-      setid: this.props.id,
-      color: "#f5c6cb",
-      message: "Joe",
-      date: "1/1/2018"
-    }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(CommentRow, {
-      id: 3,
-      setid: this.props.id,
-      color: "#f5c6cb",
-      message: "Mark",
-      date: "1/1/2018"
-    }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(CommentRow, {
-      id: 4,
-      setid: this.props.id,
-      color: "#f5c6cb",
-      message: "Mark",
-      date: "1/1/2018"
-    }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(CommentRow, {
-      id: 5,
-      setid: this.props.id,
-      color: "#f5c6cb",
-      message: "Mark",
-      date: "1/1/2018"
-    }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(CommentRow, {
-      id: 6,
-      setid: this.props.id,
-      color: "#f5c6cb",
-      message: "Mark",
-      date: "1/1/2018"
-    }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(CommentRow, {
-      id: 7,
-      setid: this.props.id,
-      color: "#f5c6cb",
-      message: "Mark",
-      date: "1/1/2018"
-    }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(CommentRow, {
-      id: 8,
-      setid: this.props.id,
-      color: "#f5c6cb",
-      message: "Mark",
-      date: "1/1/2018"
-    }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(CommentRow, {
-      id: 9,
-      setid: this.props.id,
-      color: "#f5c6cb",
-      message: "Mark",
-      date: "1/1/2018"
-    }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(CommentRow, {
-      id: 10,
-      setid: this.props.id,
-      color: "#f5c6cb",
-      message: "Mark",
-      date: "1/1/2018"
-    }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(CommentRow, {
-      id: 11,
-      setid: this.props.id,
-      color: "#f5c6cb",
-      message: "Mark",
-      date: "1/1/2018"
-    }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(CommentRow, {
-      id: 12,
-      setid: this.props.id,
-      color: "#f5c6cb",
-      message: "Mark",
-      date: "1/1/2018"
-    }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(CommentRow, {
-      id: 13,
-      setid: this.props.id,
-      color: "#f5c6cb",
-      message: "Mark",
-      date: "1/1/2018"
-    }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(CommentRow, {
-      id: 14,
-      setid: this.props.id,
-      color: "#f5c6cb",
-      message: "Mark",
-      date: "1/1/2018"
-    }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(CommentRow, {
-      id: 15,
-      setid: this.props.id,
-      color: "#f5c6cb",
-      message: "Mark",
-      date: "1/1/2018"
-    }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(CommentRow, {
-      id: 16,
-      setid: this.props.id,
-      color: "#f5c6cb",
-      message: "Mark",
-      date: "1/1/2018"
-    }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(CommentRow, {
-      id: 17,
-      setid: this.props.id,
-      color: "#f5c6cb",
-      message: "Mark",
-      date: "1/1/2018"
-    }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(CommentRow, {
-      id: 18,
-      setid: this.props.id,
-      color: "#f5c6cb",
-      message: "Mark",
-      date: "1/1/2018"
-    }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(CommentRow, {
-      id: 19,
-      setid: this.props.id,
-      color: "#f5c6cb",
-      message: "Mark",
-      date: "1/1/2018"
-    }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(CommentRow, {
-      id: 20,
-      setid: this.props.id,
-      color: "#f5c6cb",
-      message: "Mark",
-      date: "1/1/2018"
-    }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(CommentRow, {
-      id: 21,
-      setid: this.props.id,
-      color: "#f5c6cb",
-      message: "Mark",
-      date: "1/1/2018"
-    }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(CommentRow, {
-      id: 22,
-      setid: this.props.id,
-      color: "#f5c6cb",
-      message: "Mark",
-      date: "1/1/2018"
-    }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(CommentRow, {
-      id: 23,
-      setid: this.props.id,
-      color: "#f5c6cb",
-      message: "Mark",
-      date: "1/1/2018"
-    }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(CommentRow, {
-      id: 24,
-      setid: this.props.id,
-      color: "#f5c6cb",
-      message: "Mark",
-      date: "1/1/2018"
-    })));
+    }, "Fecha"))), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("tbody", null, tags));
   }
 
 }
@@ -35978,7 +35843,7 @@ exports = module.exports = __webpack_require__(3)(false);
 
 
 // module
-exports.push([module.i, ".CommentsTable {\n  height: 100%;\n  width: 100%;\n  position: relative;\n}\n", ""]);
+exports.push([module.i, ".CommentsTable {\n  height: 100%;\n  position: relative;\n}\n", ""]);
 
 // exports
 
@@ -36107,12 +35972,95 @@ exports.push([module.i, ".CommentEditor {\n  height: 50%;\n  display: grid;\n  g
 
 /***/ }),
 /* 45 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return Item; });
+/* unused harmony export Box */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return VBox; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HBox; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+
+
+class Item extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
+  render() {
+    let num, div;
+    [num, div] = this.props.w.split('/');
+    let w = num / div * 100;
+    [num, div] = this.props.h.split('/');
+    let h = num / div * 100;
+    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+      style: {
+        width: w + '%',
+        height: h + '%'
+      },
+      className: this.props.className
+    }, this.props.children);
+  }
+
+}
+
+Item.defaultProps = {
+  h: '1/1',
+  w: '1/1',
+  className: null
+};
+
+class Box extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
+  constructor(props) {
+    super(props);
+    this.style = {};
+  }
+
+  render() {
+    this.style['width'] = this.props.w;
+    this.style['height'] = this.props.h;
+    this.style['flexGrow'] = this.props.grow;
+    this.style['backgroundColor'] = this.props.bgColor;
+    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+      className: this.props.className,
+      style: this.style
+    }, this.props.children);
+  }
+
+}
+
+class VBox extends Box {
+  render() {
+    this.style['display'] = 'flex';
+    this.style['flexDirection'] = 'column';
+    return super.render();
+  }
+
+}
+
+class HBox extends Box {
+  render() {
+    this.style['display'] = 'flex';
+    return super.render();
+  }
+
+}
+
+const defaultProps = {
+  w: '100%',
+  h: '100%',
+  bgColor: '#FFFFFF',
+  grow: 0,
+  className: null
+};
+Box.defaultProps = defaultProps;
+
+
+/***/ }),
+/* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(46);
+var content = __webpack_require__(47);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -36137,7 +36085,7 @@ if(false) {
 }
 
 /***/ }),
-/* 46 */
+/* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(3)(false);
@@ -36145,7 +36093,7 @@ exports = module.exports = __webpack_require__(3)(false);
 
 
 // module
-exports.push([module.i, "* {\n  margin: 0;\n  padding: 0;\n}\nhtml,\nbody {\n  height: 100%;\n}\n#app {\n  width: 100%;\n  height: 100%;\n  margin: 0;\n  padding: 0;\n}\n.no-pad {\n  padding: 0px;\n}\n.no-cursor {\n  color: transparent;\n  text-shadow: 0 0 0 black;\n}\n.rect {\n  border-radius: 0px;\n}\n.scrolleable {\n  overflow: scroll;\n}\n.hbox {\n  display: flex;\n  width: 100%;\n  height: 100%;\n  flex-wrap: nowrap;\n}\n.vbox {\n  display: flex;\n  flex-direction: column;\n  width: 100%;\n  height: 100%;\n  flex-wrap: nowrap;\n}\n", ""]);
+exports.push([module.i, "* {\n  margin: 0;\n  padding: 0;\n}\nhtml,\nbody {\n  height: 100%;\n}\n#app {\n  width: 100%;\n  height: 100%;\n  margin: 0;\n  padding: 0;\n}\n.no-pad {\n  padding: 0px;\n}\n.no-cursor {\n  color: transparent;\n  text-shadow: 0 0 0 black;\n}\n.rect {\n  border-radius: 0px;\n}\n.scrolleable {\n  overflow-y: scroll;\n}\n", ""]);
 
 // exports
 
