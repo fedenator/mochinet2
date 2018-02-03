@@ -25,15 +25,17 @@ Item.defaultProps = {
 class Box extends Component {
     constructor(props) {
         super(props);
-        this.style = {};
+        this.style = {
+            width:           this.props.w,
+            height:          this.props.h,
+            maxWidth:        this.props.maxW,
+            maxHeight:       this.props.maxH,
+            flexGrow:        this.props.grow,
+            backgroundColor: this.props.bgColor
+        };
     }
 
     render() {
-        this.style['width']    = this.props.w;
-        this.style['height']   = this.props.h;
-        this.style['flexGrow'] = this.props.grow;
-        this.style['backgroundColor'] = this.props.bgColor;
-
         return (
             <div className={ this.props.className } style={ this.style }>
                 { this.props.children }
@@ -43,22 +45,22 @@ class Box extends Component {
 }
 
 class VBox extends Box {
-    render() {
+    constructor(props) {
+        super(props);
         this.style['display'] = 'flex';
         this.style['flexDirection'] = 'column'
-        return super.render();
     }
 }
 
 class HBox extends Box {
-    render() {
+    constructor(props) {
+        super(props);
         this.style['display'] = 'flex';
-        return super.render();
     }
 }
 
 const defaultProps = {
-    w:  '100%',
+    w: '100%',
     h: '100%',
     bgColor: '#FFFFFF',
     grow: 0,

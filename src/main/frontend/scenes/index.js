@@ -29,13 +29,13 @@ class Index extends Component {
         return(
             <VBox>
                 <Nav/>
-                <HBox grow='1' h='1px'>
+                <HBox grow='1' h='1px' w='100%'>
                     <Item w='2/7'>
                         <CommentEditor
                             id    = { this.state.id }
-                            setid = { this.setid    } />
+                            setid = { (val) => this.setid(val) } />
                     </Item>
-                    <Item className='scrolleable' w='5/7'><CommentsTable setid={ this.setid }/></Item>
+                    <Item className='scrolleable' w='5/7'><CommentsTable setid={ (val) => this.setid(val) }/></Item>
                 </HBox>
             </VBox>
         );
