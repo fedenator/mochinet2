@@ -1,19 +1,16 @@
 import React, { Component } from 'react';
 
 import './CommentEditor.less';
+import { colors } from '../global.jsx';
 
 class PrioritySelector extends Component {
 
     constructor (props) {
         super (props);
-        
-        this.colors = [
-            '#00FF00',
-            '#FFFF00',
-            '#FF8000',
-            '#FF0000'
-        ];
-        
+
+        this.colors = [];
+        for ( let color in colors ) this.colors.push(colors[color]);
+
         this.state = {
             value: 0
         };
@@ -24,13 +21,13 @@ class PrioritySelector extends Component {
             <input
                 type = 'number'
                 className = 'selPriority form-control border border-dark text-center rect'
-                
+
                 min='0' max={this.props.max}
-                
+
                 value    = {this.state.value}
                 style    = { {backgroundColor: this.colors[this.state.value]} }
-                
-                onChange = { (event) => 
+
+                onChange = { (event) =>
                     this.setState ({
                         value: event.target.value
                     })
@@ -41,13 +38,13 @@ class PrioritySelector extends Component {
 }
 
 class CommentEditor extends Component {
-    
+
     constructor (props) {
         super (props);
     }
-    
+
     render () {
-        
+
         return (
             <div className='CommentEditor border border-dark'>
                 <button

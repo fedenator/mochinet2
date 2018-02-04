@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+import $                    from 'jquery';
 
 import './CommentsTable.less';
+import { colors } from '../global.jsx';
 
 class CommentRow extends Component {
     render() {
@@ -18,7 +20,9 @@ class CommentRow extends Component {
 
 class CommentsTable extends Component {
     render() {
-        const generateTag = (id, setid, color, message, date) => <CommentRow id={id} setid={setid} color={color} message={message} date={date}/>
+        const generateTag = (id, setid, priority, message, date) => {
+            return <CommentRow key={id} setid={setid} color={colors[priority]} message={message} date={date}/>
+        }
 
         let tags = [];
         for (let i = 0; i < 100; i++) tags.push( generateTag(i, this.props.setid, '#f5c6cb', 'Markasdasdasdasdassad asdasdasdasdasdasdasdasdasdasdas dasdasdasdasdasdasdasdasdasdasdasdasdasdasdasas ssssssssssssssssssssssssssssssssssssssssss sssssssssssssssssssssssssssssssssssssss ssaaaaaaaaaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaas', '1/1/2018') );
