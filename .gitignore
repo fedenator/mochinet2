@@ -29,6 +29,5 @@ mvnw
 
 node_modules/
 *.properties
-*-boundle.js
+*boundle.js
 .mvn/
-package-lock.json
