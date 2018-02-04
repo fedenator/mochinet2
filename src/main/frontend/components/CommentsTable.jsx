@@ -8,24 +8,47 @@ class CommentRow extends Component {
     render() {
         return (
             <tr
-                onClick = { (event) => this.props.setid(this.props.id) }
+                onClick = { (event) => this.props.setid(this.props.key) }
                 style   = { {backgroundColor: this.props.color} }>
               <td className='v-center h-center'>{ this.props.id }</td>
-              <td className='v-center'>{ this.props.message }</td>
-              <td className='v-center h-center'>{ this.props.date    }</td>
+              <td className='v-center'>         { this.props.message }</td>
+              <td className='v-center h-center'>{ this.props.date }</td>
             </tr>
         );
     }
 }
 
 class CommentsTable extends Component {
+
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            comments: []
+        }
+    }
+
+    updateTable() {
+        $.get( "/comments", (data) => this.setState({ comments: data }) );
+    }
+
+    componentDidMount() {
+        this.updateTable();
+        this.timer = setInterval( () => this.updateTable() , 1000);
+    }
+
+    componentWillUnmount() {
+        clearInterval(this.timer);
+    }
+
     render() {
         const generateTag = (id, setid, priority, message, date) => {
             return <CommentRow key={id} setid={setid} color={colors[priority]} message={message} date={date}/>
         }
 
         let tags = [];
-        for (let i = 0; i < 100; i++) tags.push( generateTag(i, this.props.setid, '#f5c6cb', 'Markasdasdasdasdassad asdasdasdasdasdasdasdasdasdasdas dasdasdasdasdasdasdasdasdasdasdasdasdasdasdasas ssssssssssssssssssssssssssssssssssssssssss sssssssssssssssssssssssssssssssssssssss ssaaaaaaaaaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaas', '1/1/2018') );
+        for (let comment of this.state.comments)
+            tags.push( generateTag(comment.id, this.props.setid, comment.priority, comment.message, comment.creationDate) );
 
         return (
             <table className='CommentsTable table'>
