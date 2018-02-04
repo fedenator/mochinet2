@@ -30,12 +30,12 @@ class Index extends Component {
             <VBox>
                 <Nav/>
                 <HBox grow='1' h='1px' w='100%'>
-                    <Item w='2/7'>
+                    <Item g='2' h='100%'>
                         <CommentEditor
                             id    = { this.state.id }
                             setid = { (val) => this.setid(val) } />
                     </Item>
-                    <Item className='scrolleable' w='5/7'><CommentsTable setid={ (val) => this.setid(val) }/></Item>
+                    <Item className='scrolleable' h='100%' g='5'><CommentsTable setid={ (val) => this.setid(val) }/></Item>
                 </HBox>
             </VBox>
         );
