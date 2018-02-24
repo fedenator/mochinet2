@@ -12,8 +12,6 @@ import javax.validation.Valid;
 
 import org.hibernate.HibernateException;
 
-import java.util.Arrays;
-
 import org.mochinet2.models.Comment;
 import org.mochinet2.models.CommentsDAO;
 
@@ -32,9 +30,7 @@ public class CommentsRest {
     @PostMapping ("/add-comment")
     public boolean addComment(@RequestBody @Valid Comment comment) {
         try {
-            commentsDao.save(
-                Arrays.asList( new Comment(comment.getMessage(), comment.getPriority()) )
-            );
+            commentsDao.save( new Comment(comment.message, comment.priority) );
         } catch (HibernateException e) {
             return false;
         }

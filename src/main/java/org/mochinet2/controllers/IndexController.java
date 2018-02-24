@@ -14,5 +14,4 @@ public class IndexController {
         return new ModelAndView("Index");
     }
 
-
 }
