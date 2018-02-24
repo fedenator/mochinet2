@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import $                    from 'jquery';
 
 import './CommentsTable.less';
-import { colors } from '../global.jsx';
 
 class CommentRow extends Component {
     render() {
@@ -42,13 +41,15 @@ class CommentsTable extends Component {
     }
 
     render() {
-        const generateTag = (id, setid, priority, message, date) => {
-            return <CommentRow key={id} setid={setid} color={colors[priority]} message={message} date={date}/>
+        const generateTag = (id, setid, color, message, date) => {
+            return <CommentRow key={id} setid={setid} color={color} message={message} date={date}/>
         }
 
-        let tags = [];
-        for (let comment of this.state.comments)
-            tags.push( generateTag(comment.id, this.props.setid, comment.priority, comment.message, comment.creationDate) );
+        let tags  = [];
+        // for (let comment of this.state.comments) {
+        //     let color = 'rgb('+comment.priority.red+','+comment.priority.green+','+comment.priority.blue+')';
+        //     tags.push( generateTag(comment.id, this.props.setid, color, comment.message, comment.creationDate) );
+        // }
 
         return (
             <table className='CommentsTable table'>
