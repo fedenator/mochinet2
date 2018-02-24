@@ -11,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.TemporalType;
 import javax.persistence.Temporal;
+import javax.persistence.ManyToOne;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -23,38 +24,22 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 @Entity
 public class Comment {
 
-    public enum Priority {
-        HIGH   ("Alta"),
-        MEDIUM ("Media"),
-        LOW    ("Baja"),
-        NULL   ("Nula");
-
-        private final String name;
-
-        Priority (String name) {
-            this.name = name;
-        }
-
-        public String getName() {
-            return this.name;
-        }
-    }
-
     private static final DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
 
     @Temporal(TemporalType.DATE)
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
-    private Date    creationDate;
+    public Date creationDate;
 
     @NotNull
     @Size(min = 1, message = "El mensaje no puede esta vacio")
-    private String  message;
+    public String  message;
 
     @NotNull
-    private Priority priority;
+    @ManyToOne
+    public Priority priority;
 
     @NotNull
-    private boolean deleted;
+    public boolean deleted;
 
     @Id
     @GeneratedValue (strategy = GenerationType.AUTO)
@@ -101,34 +86,6 @@ public class Comment {
     }
 
     /*--------------------------- Getters y Setters -------------------------*/
-    public void setCreationDate(Date creationDate) {
-        this.creationDate = creationDate;
-    }
-    public Date getCreationDate(){
-        return this.creationDate;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
-    }
-    public String getMessage() {
-        return this.message;
-    }
-
-    public void setPriority(Priority priority) {
-        this.priority = priority;
-    }
-    public Priority getPriority() {
-        return this.priority;
-    }
-
-    public void setDeleted(boolean deleted) {
-        this.deleted = deleted;
-    }
-    public boolean isDeleted() {
-        return this.deleted;
-    }
-
     public long getId() {
         return this.id;
     }
