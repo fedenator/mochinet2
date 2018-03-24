@@ -32,10 +32,12 @@ class Index extends Component {
                 <HBox grow='1' h='1px' w='100%'>
                     <Item g='2' h='100%'>
                         <CommentEditor
-                            id    = { this.state.id }
-                            setid = { (val) => this.setid(val) } />
+                            comment    = { this.state.comment }
+                            setComment = { (comment) => this.setComment(comment) } />
                     </Item>
-                    <Item className='scrolleable' h='100%' g='5'><CommentsTable setid={ (val) => this.setid(val) }/></Item>
+                    <Item className='scrolleable' h='100%' g='5'>
+                        <CommentsTable setComment={ (comment) => this.setComment(comment) }/>
+                    </Item>
                 </HBox>
             </VBox>
         );

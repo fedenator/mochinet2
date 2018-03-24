@@ -2,14 +2,14 @@ import React, { Component } from 'react';
 
 class Item extends Component {
     render() {
-        let num, div;
-        // [num, div] = this.props.w.split('/');
-        // let w = num/div*100;
-        // [num, div] = this.props.h.split('/');
-        // let h = num/div*100;
-
         return (
-            <div style={{ width: this.props.w, height: this.props.h, flexGrow: this.props.g }} className={ this.props.className}>
+            <div
+                style={{
+                    width: this.props.w,
+                    height: this.props.h,
+                    flexGrow: this.props.g
+                }}
+                className={ this.props.className }>
                 { this.props.children }
             </div>
         );
