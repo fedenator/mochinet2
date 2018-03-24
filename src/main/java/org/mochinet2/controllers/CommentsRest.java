@@ -24,24 +24,39 @@ public class CommentsRest {
 
     @GetMapping ("/comments")
     public Iterable<Comment> getComments() {
-        return commentsDao.findAll();
+        return commentsDao.activeComments();
     }
 
     @PostMapping ("/add-comment")
     public boolean addComment(@RequestBody @Valid Comment comment) {
         try {
             commentsDao.save( new Comment(comment.message, comment.priority) );
+            return true;
         } catch (HibernateException e) {
             return false;
         }
-        return true;
     }
 
-    @GetMapping ("delete-comment/{id}")
+    @PostMapping ("/comment/{id}")
+    public boolean editComment(@PathVariable long id, @RequestBody @Valid Comment comment) {
+        try {
+            comment.id = id;
+            commentsDao.save(comment);
+            return true;
+        } catch (HibernateException e) {
+            return false;
+        }
+    }
+
+    @PostMapping ("/delete-comment/{id}")
     public boolean deleteComment(@PathVariable long id) {
         Comment comment = commentsDao.findOne(id);
-        if (comment == null) return false;
-        commentsDao.delete(comment);
+
+        if (comment == null)
+            return false;
+
+        comment.deleted = true;
+        commentsDao.save(comment);
         return true;
     }
 }
