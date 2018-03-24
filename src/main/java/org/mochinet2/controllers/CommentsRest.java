@@ -40,7 +40,9 @@ public class CommentsRest {
     @PostMapping ("/comment/{id}")
     public boolean editComment(@PathVariable long id, @RequestBody @Valid Comment comment) {
         try {
-            comment.id = id;
+            Comment oldComment = commentsDao.findOne(id);
+            if (oldComment == null || oldComment.deleted) return false;
+            comment.creationDate = oldComment.creationDate;
             commentsDao.save(comment);
             return true;
         } catch (HibernateException e) {
