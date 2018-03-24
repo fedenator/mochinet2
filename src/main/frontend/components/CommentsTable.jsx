@@ -5,13 +5,14 @@ import './CommentsTable.less';
 
 class CommentRow extends Component {
     render() {
+        let color = 'rgb('+this.props.comment.priority.color.red+','+this.props.comment.priority.color.green+','+this.props.comment.priority.color.blue+')';
         return (
             <tr
-                onClick = { (event) => this.props.setid(this.props.key) }
-                style   = { {backgroundColor: this.props.color} }>
-              <td className='v-center h-center'>{ this.props.id }</td>
-              <td className='v-center'>         { this.props.message }</td>
-              <td className='v-center h-center'>{ this.props.date }</td>
+                onClick = { (event) => this.props.setComment(this.props.comment) }
+                style   = { {backgroundColor:     color} }>
+              <td className='v-center h-center'>{ this.props.comment.id           }</td>
+              <td className='v-center'>         { this.props.comment.message      }</td>
+              <td className='v-center h-center'>{ this.props.comment.creationDate }</td>
             </tr>
         );
     }
@@ -41,15 +42,15 @@ class CommentsTable extends Component {
     }
 
     render() {
-        const generateTag = (id, setid, color, message, date) => {
-            return <CommentRow key={id} setid={setid} color={color} message={message} date={date}/>
+        const generateTag = (id, setComment, comment) => {
+            return <CommentRow key={id} setComment={setComment} comment={comment}/>
         }
 
         let tags  = [];
-        // for (let comment of this.state.comments) {
-        //     let color = 'rgb('+comment.priority.red+','+comment.priority.green+','+comment.priority.blue+')';
-        //     tags.push( generateTag(comment.id, this.props.setid, color, comment.message, comment.creationDate) );
-        // }
+         for (let comment of this.state.comments) {
+
+             tags.push( generateTag(comment.id, (comment) => this.props.setComment(comment), comment) );
+         }
 
         return (
             <table className='CommentsTable table'>
@@ -60,7 +61,7 @@ class CommentsTable extends Component {
                         <th scope='col' className='h-center' style={{width: '100px'}}>Fecha</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody className='scrolleable'>
                     { tags }
                 </tbody>
             </table>

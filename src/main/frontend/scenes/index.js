@@ -17,12 +17,17 @@ class Index extends Component {
         super(props);
 
         this.state = {
-            id: ''
+            comment: {
+                id          : 0,
+                message     : '',
+                creationDate: '',
+                priority    : null
+            }
         }
     }
 
-    setid(value) {
-        this.setState({ id: value });
+    setComment(comment) {
+        this.setState({ comment: comment });
     }
 
     render() {
