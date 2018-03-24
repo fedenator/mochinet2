@@ -43,7 +43,7 @@ public class Comment {
 
     @Id
     @GeneratedValue (strategy = GenerationType.AUTO)
-    private long id;
+    public long id;
 
     /*---------------------------- Constructors -----------------------------*/
     //Default constructor for Hibernate
@@ -83,10 +83,5 @@ public class Comment {
             "Priority:     " + priority + "\n" +
             "Deleted:      " + deleted  + "\n" +
             "CreationDate: " + dateFormat.format(creationDate) + "\n";
-    }
-
-    /*--------------------------- Getters y Setters -------------------------*/
-    public long getId() {
-        return this.id;
     }
 }
